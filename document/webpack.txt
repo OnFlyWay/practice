@@ -1,0 +1,3 @@
+1、webpack在执行的时候，可以通过 npx webpack --env.production 的方式传递是开发模式还是生产模式，（接收是在webpack.config.js中）开发模式的时候，打包的js文件是放在内存中的，所以重启后文件就不存在了。）然后根据模式来用做不同的配置;
+2、webpack-dev-serve 热更新
+2、插件html-webpack-plugin来打包html文件。
