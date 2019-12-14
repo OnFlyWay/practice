@@ -2,3 +2,12 @@
 2、webpack-dev-serve 热更新；
 3、插件html-webpack-plugin来打包html文件；
 4、npm link可以为相关的bin创建快捷方式。
+
+Webpack打包模块的源码执行程序：
+1、把所有模块的代码放入到函数中，用一个数组保存起来；
+2、根据require时传入的数组索引，能知道需要哪一段代码；
+3、从数组中，根据索引取出包含我们代码的函数；
+4、执行该函数，传入一个对象module.exports;
+5、把我们的代码，按照约定，正好是用module.exports=‘XXX’赋值；
+6、调动函数结束后，module.exports从原来的空对象，就有值了；
+7、最终return module.exports 作为require函数的返回值。
