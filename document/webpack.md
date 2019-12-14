@@ -11,3 +11,26 @@ Webpack打包模块的源码执行程序：
 5、把我们的代码，按照约定，正好是用module.exports=‘XXX’赋值；
 6、调动函数结束后，module.exports从原来的空对象，就有值了；
 7、最终return module.exports 作为require函数的返回值。
+
+
+公共的资源抽离到一个文件中 commonsChunkPlugin插件；
+1、单独抽离出webpack运行文件；
+2、抽离第三方库和自定义公共模块；
+
+entry:{
+  ...
+  "vendor":Object.keys(packagejson.dependencies)//获取生成环境依赖的库
+}
+plugins:[
+  new webpack.optimize.commonsChunkPlugin({
+    name:['vendor','runtime'],
+    filename:'[name].js',
+    minChunks:infinity
+    //infinity  只有入口文件>=3才能用，用来在第三方库中分离自定义公共模块
+  }),
+  new webpack.optimize.commonsChunkPlugin({
+    name:'common',
+    filename:'[name].js',
+    chunks:['main1','main2'] //从main1.js和main2.js中抽离
+  })
+]
