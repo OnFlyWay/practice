@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "pdf-lib": "^1.17.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.2",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "start": "ts-node ./tempCode/src/index.ts"
+  }
+}
